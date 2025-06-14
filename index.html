@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Press & Media | CyberFort</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      max-width: 700px;
+      margin: 2rem auto;
+      padding: 0 1rem;
+    }
+    .lang-select {
+      text-align: right;
+      margin-bottom: 1rem;
+    }
+    .btn {
+      display: inline-block;
+      margin: 1rem 0;
+      padding: 0.6rem 1.2rem;
+      background: #0056b3;
+      color: white;
+      text-decoration: none;
+      border-radius: 4px;
+    }
+    .press-list li {
+      margin-bottom: 1rem;
+    }
+    form.newsletter input[type="email"] {
+      padding: 0.5rem;
+      width: 70%;
+      max-width: 300px;
+      margin-right: 0.5rem;
+      border: 1px solid #ccc;
+      border-radius: 4px;
+    }
+    form.newsletter button {
+      padding: 0.5rem 1rem;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 4px;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="lang-select">
+      <select id="langSelect">
+        <option value="en">UK English</option>
+        <option value="es">Español</option>
+        <option value="fr">Français</option> </select>
+    </div>
+
+    <h1 id="title"></h1>
+    <p id="description"></p>
+    <a href="downloads/press-kit.zip" class="btn" download id="downloadPressKit"></a>
+
+    <h2 id="recentPress"></h2>
+    <ul class="press-list" id="pressList">
+      <li>
+        <strong>CyberFort Launches AI-Powered Threat Detection</strong><br/>
+        <a href="downloads/cyberfort-next-gen-threat-detection.pdf" download>Download PDF</a>
+      </li>
+      <li>
+        <strong>CyberFort Achieves SOC2 Type 2 Certification</strong><br/>
+        <a href="downloads/cyberfort-soc2-type2-certification.pdf" download>Download PDF</a>
+      </li>
+      <li>
+        <strong>National Cyber Defense Partnership Announced</strong><br/>
+        <a href="downloads/cyberfort-national-cyber-defense-partnership.pdf" download>Download PDF</a>
+      </li>
+      <li>
+        <strong>European SOC Launch Event Highlights</strong><br/>
+        <a href="downloads/cyberfort-european-soc-launch.pdf" download>Download PDF</a>
+      </li>
+      <li>
+        <strong>Cloud Security Leader Report Released</strong><br/>
+        <a href="downloads/cyberfort-cloud-security-leader-report.pdf" download>Download PDF</a>
+      </li>
+    </ul>
+
+    <h2 id="stayUpdated"></h2>
+    <p id="subscribeCTA"></p>
+    <form class="newsletter" onsubmit="alert('Subscribed!'); return false;">
+      <input type="email" placeholder="you@example.com" required />
+      <button id="subscribe" type="submit"></button>
+    </form>
+
+    <h2 id="mediaContact"></h2>
+    <p id="contactNote"></p>
+    <a href="mailto:press@cyberfort.com">press@cyberfort.com</a>
+  </div>
+
+  <script>
+    const texts = {
+      en: {
+        title: "Press & Media",
+        description: "Stay updated with the latest CyberFort news, press releases, and resources.",
+        downloadPressKit: "Download Press Kit",
+        recentPress: "Recent Press Releases",
+        stayUpdated: "Stay Updated",
+        subscribeCTA: "Subscribe to our newsletter to get the latest updates directly in your inbox.",
+        subscribe: "Subscribe",
+        mediaContact: "Media Contact",
+        contactNote: "For press inquiries, please reach out to:",
+      },
+      es: {
+        title: "Prensa y Medios",
+        description: "Manténgase al día con las últimas noticias, comunicados de prensa y recursos de CyberFort.",
+        downloadPressKit: "Descargar Kit de Prensa",
+        recentPress: "Comunicados de Prensa Recientes",
+        stayUpdated: "Mantente Informado",
+        subscribeCTA: "Suscríbete a nuestro boletín para recibir las últimas actualizaciones directamente en tu correo.",
+        subscribe: "Suscribirse",
+        mediaContact: "Contacto de Medios",
+        contactNote: "Para consultas de prensa, por favor contacte a:",
+      }, // Added comma here
+      fr: {
+        title: "Presse et Médias",
+        description: "Restez informé(e) des dernières actualités, des communiqués de presse et des ressources de CyberFort.",
+        downloadPressKit: "Télécharger le kit de presse",
+        recentPress: "Communiqués de presse récents",
+        stayUpdated: "Restez informé(e)",
+        subscribeCTA: "Abonnez-vous à notre newsletter pour recevoir les dernières mises à jour directement dans votre boîte de réception.",
+        subscribe: "S'abonner",
+        mediaContact: "Contact Presse",
+        contactNote: "Pour toute demande de presse, veuillez contacter :"
+      }
+    };
+
+    function updateText(lang) {
+      document.getElementById('title').textContent = texts[lang].title;
+      document.getElementById('description').textContent = texts[lang].description;
+      document.getElementById('downloadPressKit').textContent = texts[lang].downloadPressKit;
+      document.getElementById('recentPress').textContent = texts[lang].recentPress;
+      document.getElementById('stayUpdated').textContent = texts[lang].stayUpdated;
+      document.getElementById('subscribeCTA').textContent = texts[lang].subscribeCTA;
+      document.getElementById('subscribe').textContent = texts[lang].subscribe;
+      document.getElementById('mediaContact').textContent = texts[lang].mediaContact;
+      document.getElementById('contactNote').textContent = texts[lang].contactNote;
+    }
+
+    const langSelect = document.getElementById('langSelect');
+    langSelect.addEventListener('change', () => updateText(langSelect.value));
+
+    // Initialize with English by default
+    updateText('en');
+  </script>
+</body>
+</html>
