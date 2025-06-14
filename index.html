@@ -1,0 +1,205 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Spelly Subscription Options</title>
+    <style>
+        /* Basic CSS for the subscription page */
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 960px;
+            margin: 0 auto;
+            padding: 20px;
+            background-color: #f9f9f9;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #38AFFF; /* Changed from #0056b3 */
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .language-selector {
+            text-align: right;
+            margin-bottom: 20px;
+        }
+        .language-selector button {
+            background-color: #38AFFF; /* Changed from #007bff */
+            color: white;
+            border: none;
+            padding: 8px 15px;
+            margin-left: 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .language-selector button:hover {
+            background-color: #0056b3; /* Kept original darker blue for hover contrast */
+        }
+        .product-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+        }
+        .product-item {
+            background-color: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            text-align: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .product-item img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+        .product-item h3 {
+            margin-top: 0;
+            color: #333;
+        }
+        .product-item p {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .product-item .price {
+            font-size: 18px;
+            font-weight: bold;
+            color: #38AFFF; /* Changed from #007bff */
+            margin-bottom: 15px;
+        }
+        .subscribe-btn {
+            background-color: #28a745;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        .subscribe-btn:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="container">
+        <div class="language-selector">
+            <button onclick="setLanguage('en-GB')">UK English</button>
+            <button onclick="setLanguage('es')">Español</button>
+            <button onclick="setLanguage('fr')">Français</button>
+        </div>
+
+        <h1 data-lang-key="subscription_title">Spelly Subscription Options</h1>
+
+        <div class="product-grid">
+            <div class="product-item">
+                <img src="https://via.placeholder.com/250x250?text=Spelly+Weekly" alt="Spelly Weekly Subscription">
+                <h3 data-lang-key="sub1_name">Weekly Spelly Subscription</h3>
+                <p data-lang-key="sub1_desc">Get full access to Spelly for a week.</p>
+                <div class="price" data-lang-key="sub1_price">£4.99/week</div>
+                <button class="subscribe-btn" data-lang-key="subscribe_btn">Subscribe Now</button>
+            </div>
+
+            <div class="product-item">
+                <img src="https://via.placeholder.com/250x250?text=Spelly+Monthly" alt="Spelly Monthly Subscription">
+                <h3 data-lang-key="sub2_name">Monthly Spelly Subscription</h3>
+                <p data-lang-key="sub2_desc">Enjoy Spelly for a full month at a discounted rate.</p>
+                <div class="price" data-lang-key="sub2_price">£14.99/month</div>
+                <button class="subscribe-btn" data-lang-key="subscribe_btn">Subscribe Now</button>
+            </div>
+
+            <div class="product-item">
+                <img src="https://via.placeholder.com/250x250?text=Spelly+Yearly" alt="Spelly Yearly Subscription">
+                <h3 data-lang-key="sub3_name">Yearly Spelly Subscription</h3>
+                <p data-lang-key="sub3_desc">Save big with an annual subscription to Spelly.</p>
+                <div class="price" data-lang-key="sub3_price">£99.99/year</div>
+                <button class="subscribe-btn" data-lang-key="subscribe_btn">Subscribe Now</button>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Language content object
+        const translations = {
+            'en-GB': {
+                subscription_title: "Spelly Subscription Options",
+                sub1_name: "Weekly Spelly Subscription",
+                sub1_desc: "Get full access to Spelly for a week.",
+                sub1_price: "£4.99/week",
+                sub2_name: "Monthly Spelly Subscription",
+                sub2_desc: "Enjoy Spelly for a full month at a discounted rate.",
+                sub2_price: "£14.99/month",
+                sub3_name: "Yearly Spelly Subscription",
+                sub3_desc: "Save big with an annual subscription to Spelly.",
+                sub3_price: "£99.99/year",
+                subscribe_btn: "Subscribe Now"
+            },
+            'es': {
+                subscription_title: "Opciones de Suscripción a Spelly",
+                sub1_name: "Suscripción Semanal a Spelly",
+                sub1_desc: "Obtén acceso completo a Spelly por una semana.",
+                sub1_price: "€4.99/semana",
+                sub2_name: "Suscripción Mensual a Spelly",
+                sub2_desc: "Disfruta de Spelly durante un mes entero con una tarifa reducida.",
+                sub2_price: "€14.99/mes",
+                sub3_name: "Suscripción Anual a Spelly",
+                sub3_desc: "Ahorra mucho con una suscripción anual a Spelly.",
+                sub3_price: "€99.99/año",
+                subscribe_btn: "Suscribirse Ahora"
+            },
+            'fr': {
+                subscription_title: "Options d'Abonnement Spelly",
+                sub1_name: "Abonnement Spelly Hebdomadaire",
+                sub1_desc: "Accédez à Spelly en illimité pendant une semaine.",
+                sub1_price: "€4.99/semaine",
+                sub2_name: "Abonnement Spelly Mensuel",
+                sub2_desc: "Profitez de Spelly pendant un mois entier à un tarif réduit.",
+                sub2_price: "€14.99/mois",
+                sub3_name: "Abonnement Spelly Annuel",
+                sub3_desc: "Économisez gros avec un abonnement annuel à Spelly.",
+                sub3_price: "€99.99/an",
+                subscribe_btn: "S'abonner Maintenant"
+            }
+        };
+
+        function setLanguage(lang) {
+            const elements = document.querySelectorAll('[data-lang-key]');
+            elements.forEach(element => {
+                const key = element.getAttribute('data-lang-key');
+                if (translations[lang] && translations[lang][key]) {
+                    element.textContent = translations[lang][key];
+                }
+            });
+            localStorage.setItem('selectedLanguage', lang);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const storedLang = localStorage.getItem('selectedLanguage');
+            const browserLang = navigator.language || navigator.userLanguage;
+            let initialLang = 'en-GB';
+
+            if (storedLang && translations[storedLang]) {
+                initialLang = storedLang;
+            } else if (browserLang.startsWith('es')) {
+                initialLang = 'es';
+            } else if (browserLang.startsWith('fr')) {
+                initialLang = 'fr';
+            } else if (browserLang.startsWith('en')) {
+                initialLang = 'en-GB';
+            }
+            setLanguage(initialLang);
+        });
+    </script>
+
+</body>
+</html>
+
